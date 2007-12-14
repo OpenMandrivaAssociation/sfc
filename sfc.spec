@@ -31,9 +31,15 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="sound_section.png" needs="x11" title="SoundFontCombi" longtitle="MIDI event mixer" section="Multimedia/Sound"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
+[Desktop Entry]
+Type=Application
+Exec=Audio;
+Icon=sound_section
+Name=SoundFontCombi
+Comment=MIDI event mixer
+Categories=AudioVideo;Player;Audio;
 EOF
 
 %clean
@@ -50,5 +56,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc  AUTHORS ChangeLog README COPYING
 %{_bindir}/%name
 %{_datadir}/%name
-%{_menudir}/%name
+%{_datadir}/applications/mandriva-%name.desktop
 
