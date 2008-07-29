@@ -1,6 +1,6 @@
 %define name	sfc
 %define version	0.016
-%define release %mkrel 2
+%define release %mkrel 4
 
 Name: 	 	%{name}
 Summary: 	SoundFontCombi - ALSA MIDI event mixer
