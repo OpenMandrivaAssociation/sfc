@@ -1,6 +1,6 @@
 %define name	sfc
-%define version	0.016
-%define release %mkrel 7
+%define version	0.017
+%define release %mkrel 1
 
 Name: 	 	%{name}
 Summary: 	SoundFontCombi - ALSA MIDI event mixer
@@ -9,7 +9,7 @@ Release: 	%{release}
 
 Source:		%{name}-%{version}.tar.bz2
 URL:		http://personal.telefonica.terra.es/web/soudfontcombi
-License:	GPL
+License:	GPLv2
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	fltk-devel libalsa-devel
