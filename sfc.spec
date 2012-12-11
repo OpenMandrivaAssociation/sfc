@@ -1,18 +1,17 @@
-%define name	sfc
-%define version	0.017
-%define release %mkrel 2
-
-Name: 	 	%{name}
-Summary: 	SoundFontCombi - ALSA MIDI event mixer
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		%{name}-%{version}.tar.bz2
-URL:		http://personal.telefonica.terra.es/web/soudfontcombi
+Name:		sfc
+Summary:	SoundFontCombi - ALSA MIDI event mixer
+Version:	0.018
+Release:	1
 License:	GPLv2
 Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	fltk-devel libalsa-devel
+URL:		http://personal.telefonica.terra.es/web/soudfontcombi
+Source:		%{name}-%{version}.tar.gz
+BuildRequires:	fltk-devel
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(cairo)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(pixman-1)
+BuildRequires:	pkgconfig(x11)
 
 %description
 SoudFontCombi uses the ALSA sequencer to route MIDI events. You have 8 parts
@@ -25,14 +24,13 @@ synthetizers.
 %build
 %configure2_5x
 %make
-										
+
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
-cat << EOF > %buildroot%{_datadir}/applications/mandriva-%name.desktop
+mkdir -p %{buildroot}%{_datadir}/applications/
+cat << EOF > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
 Exec=Audio;
@@ -42,23 +40,9 @@ Comment=MIDI event mixer
 Categories=AudioVideo;Player;Audio;
 EOF
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-		
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
-
 %files
-%defattr(-,root,root)
-%doc  AUTHORS ChangeLog README COPYING
-%{_bindir}/%name
-%{_datadir}/%name
-%{_datadir}/applications/mandriva-%name.desktop
+%doc AUTHORS ChangeLog README COPYING
+%{_bindir}/%{name}
+%{_datadir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 
