@@ -1,7 +1,7 @@
 Name:		sfc
 Summary:	SoundFontCombi - ALSA MIDI event mixer
 Version:	0.018
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		Sound
 URL:		http://personal.telefonica.terra.es/web/soudfontcombi
