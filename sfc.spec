@@ -4,7 +4,7 @@ Version:	0.018
 Release:	2
 License:	GPLv2
 Group:		Sound
-URL:		http://personal.telefonica.terra.es/web/soudfontcombi
+URL:		https://personal.telefonica.terra.es/web/soudfontcombi
 Source:		%{name}-%{version}.tar.gz
 BuildRequires:	fltk-devel
 BuildRequires:	pkgconfig(alsa)
